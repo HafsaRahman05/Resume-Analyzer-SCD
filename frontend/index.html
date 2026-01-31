@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Analyzer</title>
+    <link rel="stylesheet" href="./style.css">
+    <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">🚀 Resume Analyzer</div>
+            <nav>
+                <a href="#" data-tab="upload" class="active">Upload</a>
+                <a href="#" data-tab="score">Score</a>
+                <a href="#" data-tab="ats">ATS</a>
+                <a href="#" data-tab="jobs">Jobs</a>
+                <a href="#" data-tab="text">Extracted Text</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Loading Spinner -->
+    <div id="loading" class="loading-overlay" style="display:none;">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Hero Section -->
+<section id="hero" class="hero">
+    <div class="hero-content">
+        <h1>Your Dream <br> Job Faster</h1>
+        <p>Our AI-powered platform analyzes your resume, optimizes it for ATS, and matches you with the perfect job opportunities.</p>
+        <a href="#upload" class="hero-btn">Get Started</a>
+    </div>
+</section>
+
+    <!-- Features Section -->
+<section id="features" class="features-section">
+    <div class="features-header">
+        <h2>Unlock Your Career Potential</h2>
+        <p>Get instant, actionable feedback to stand out from the competition. Our system provides everything you need to optimize your resume / CV and accelerate your job search.</p>
+    </div>
+
+    <div class="features-grid">
+        <!-- Card 1 -->
+        <div class="feature-card">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <h3>AI Analysis</h3>
+            <p>Get instant feedback on keywords, skills, and formatting</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="feature-card">
+            <i class="fa-solid fa-chart-simple"></i>
+            <h3>CV/Resume Scoring</h3>
+            <p>Get instant feedback on keywords, skills, and formatting</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="feature-card">
+            <i class="fa-solid fa-pencil"></i>
+            <h3>ATS Rewriting</h3>
+            <p>Get instant feedback on keywords, skills, and formatting</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="feature-card">
+            <i class="fa-solid fa-briefcase"></i>
+            <h3>Job Recommendations</h3>
+            <p>Get instant feedback on keywords, skills, and formatting</p>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section id="how-it-works" class="how-it-works-section">
+    <div class="container">
+        <h2 class="section-title">How It Works</h2>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number"><i class="fas fa-cogs"></i></div>
+                <h3>Choose a Feature</h3>
+                <p>Select the service you want: AI Analysis, Resume Scoring, ATS Optimization, or Job Recommendations.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number"><i class="fas fa-file-upload"></i></div>
+                <h3>Upload Your Resume/CV</h3>
+                <p>Upload your resume or CV in PDF, DOCX, or TXT format for instant processing.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number"><i class="fas fa-robot"></i></div>
+                <h3>AI Processes Your Resume/CV</h3>
+                <p>Our AI analyzes your document, checks keywords, skills, formatting, and ATS compatibility.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number"><i class="fas fa-chart-line"></i></div>
+                <h3>View Your Result</h3>
+                <p>Get detailed feedback, optimized resume, and personalized job recommendations instantly.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <main>
+        <!-- Tabs -->
+        <section id="upload" class="tab card active-tab">
+            <h2>Upload Your Resume</h2>
+            <input type="file" id="resumeFile">
+            <button onclick="uploadResume()">Upload & Analyze</button>
+        </section>
+
+        <section id="score" class="tab card">
+            <h2>Resume Score</h2>
+            <canvas id="scoreChart" height="250"></canvas>
+            <pre id="resumeScore">No resume uploaded yet.</pre>
+        </section>
+
+        <section id="ats" class="tab card">
+            <h2>ATS Optimized Resume</h2>
+            <pre id="optimizedResume">No resume uploaded yet.</pre>
+        </section>
+
+        <section id="jobs" class="tab card">
+            <h2>Job Recommendations</h2>
+            <pre id="jobRecommendations">No resume uploaded yet.</pre>
+        </section>
+
+        <section id="text" class="tab card">
+            <h2>Extracted Text</h2>
+            <pre id="resumeText">No resume uploaded yet.</pre>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Resume Analyzer | Professional Resume Tool</p>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>
