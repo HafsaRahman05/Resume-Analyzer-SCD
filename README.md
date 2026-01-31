@@ -71,7 +71,7 @@ Resume is scored out of **100** based on:
 ---
 
 ## 🏗 Project Structure
-~~
+```
 Resume-Analyzer-SCD/
 │
 ├── backend/
@@ -101,7 +101,7 @@ Resume-Analyzer-SCD/
 │ └── script.js
 │
 └── README.md
-~~
+```
 
 
 ---
@@ -165,3 +165,4 @@ SCD Course Project
 ## 📄 License
 
 This project is developed for **academic and educational purposes only**.
+
