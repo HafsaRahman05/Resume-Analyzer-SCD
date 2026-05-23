@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "https://athletic-charisma-production-164a.up.railway.app";
 
 // -------- Tabs --------
 const tabs = document.querySelectorAll("header nav a");
