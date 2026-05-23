@@ -15,7 +15,7 @@ app.add_middleware(
         "https://resume-analyzer-scd.vercel.app",
         "http://localhost:3000"
     ],
-    allow_credentials=False,
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
