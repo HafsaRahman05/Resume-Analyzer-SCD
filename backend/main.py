@@ -2,20 +2,20 @@ from fastapi import FastAPI
 from routes import resume, user, jobs
 from fastapi.middleware.cors import CORSMiddleware
 
-
-
 app = FastAPI(
     title="AI Resume Analyzer",
     description="Resume Scoring, ATS Optimization & Job Recommendation System",
     version="1.0"
 )
 
-origins = ["*"]  # Allow all origins for demo; for production, set your frontend URL
-
+# ✅ Production-safe CORS config
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
+    allow_origins=[
+        "https://resume-analyzer-scd.vercel.app",
+        "http://localhost:3000"
+    ],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
