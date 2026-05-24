@@ -34,32 +34,32 @@ async def upload_resume(file: UploadFile = File(...)):
         "filename": filename,
         "extracted_text": resume_text[:3000]  # limit output
     }
-
 @router.post("/score")
 async def score_resume(file: UploadFile = File(...)):
-    filename = file.filename
-    file_ext = filename.split(".")[-1].lower()
-    
+    try:
+        filename = file.filename
+        file_ext = filename.split(".")[-1].lower()
 
-    if file_ext not in ["pdf", "docx"]:
-        raise HTTPException(status_code=400, detail="Only PDF or DOCX allowed")
+        if file_ext not in ["pdf", "docx"]:
+            raise HTTPException(status_code=400, detail="Only PDF or DOCX allowed")
 
-    file_path = os.path.join(UPLOAD_DIR, filename)
+        file_path = os.path.join(UPLOAD_DIR, filename)
 
-    with open(file_path, "wb") as f:
-        f.write(await file.read())
+        with open(file_path, "wb") as f:
+            f.write(await file.read())
 
-    resume_text = extract_resume_text(file_path, file_ext)
-    score_data = calculate_resume_score(resume_text)
-    resumes_collection.insert_one({
-    "filename": filename,
-    "score": score_data
-})
+        resume_text = extract_resume_text(file_path, file_ext)
 
-    return {
-        "filename": filename,
-        "resume_score": score_data
-    }
+        score_data = calculate_resume_score(resume_text)
+
+        return {
+            "filename": filename,
+            "resume_score": score_data
+        }
+
+    except Exception as e:
+        print("ERROR:", str(e))
+        raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("/optimize")
 async def optimize_resume_api(file: UploadFile = File(...)):
