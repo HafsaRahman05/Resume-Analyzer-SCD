@@ -6,3 +6,4 @@ pymongo
 pdfplumber
 python-docx
 gunicorn
+cors
