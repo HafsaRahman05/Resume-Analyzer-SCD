@@ -7,3 +7,7 @@ pdfplumber
 python-docx
 gunicorn
 cors
+dnspython
+PyMuPDF
+scikit-learn
+nltk
